@@ -18,6 +18,31 @@ body{
     background-color: #F1EEE4;
 }
 
+
+nav{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    padding: 2vw 1vw;
+}
+nav svg{
+    height: 2vw;
+}
+.nav-part2{
+    width: 8%;
+    /* background-color: red; */
+}
+.nav-part2 h4{
+    font-size: 1.1vw;
+    mix-blend-mode: difference;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
 #page1{
     min-height: 100vh;
     width: 100%;
@@ -46,7 +71,9 @@ body{
     letter-spacing: -10px;
     mix-blend-mode: exclusion;
 }
-
+#page1 h1 span{
+    display: inline-block;
+}
 
 
 

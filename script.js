@@ -36,12 +36,24 @@ function locomotiveAnimation() {
 
 }
 
-locomotiveAnimation()
+// locomotiveAnimation()
 
-gsap.from("#page1 h1",{
-    // opacity:0,
-    y:600,
-    duration:1,
+var allText = document.querySelectorAll(".page1-text h1")
+
+allText.forEach(function(elem){
+    var text = elem.textContent
+    var splittedText = text.split("")
+    var clutter = ""
+    splittedText.forEach(function(e){
+        clutter += `<span>${e}</span>`
+    })
+    elem.innerHTML = clutter
+})
+
+gsap.from(".page1-text h1 span",{
+    y:300,
+    opacity:0,
     delay:0.5,
-    stagger:0.2,
+    duration:0.6,
+    stagger:0.1
 })
