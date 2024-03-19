@@ -67,6 +67,13 @@ nav{
 }
 nav svg{
     height: 2vw;
+    /* mix-blend-mode: darken; */
+    /* background-color: rgb(0, 0, 0); */
+    /* background-color: rgb(255, 255, 255); */
+}
+nav svg path{
+    /* fill: rgb(255, 255, 255) !important; */
+    /* mix-blend-mode: difference; */
 }
 .nav-part2{
     width: 8%;
@@ -200,4 +207,63 @@ overflow: hidden;
 }
 .card:hover video{
     scale: 1.15;
+}
+
+#page4{
+    min-height: 100vh;
+    width: 100%;
+    padding: 14vh 0vw 14vh 12vw;
+    position: relative;
+    /* background-color: red; */
+}
+#page4>h1{
+    font-size: 7.5vw;
+    line-height: 7.2vw;
+    text-align: center;
+    font-weight:500;
+}
+#element-container{
+    margin-top: 7vw;
+    position: relative;
+}
+.element{
+    /* background-color: red; */
+    padding: 6vh 0;
+    border-top: 1px solid #000000;
+    position: relative;
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    z-index: 9;
+    position: absolute;
+    top: 0;
+}
+.element h2{
+    font-size: 2.5vw;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+#moving-image{
+    height: 26vw;
+    width: 20vw;
+    background-color: red;
+    position: absolute;
+    opacity: 0;
+    z-index: 8;
+    transform: translate(-50%,-50%);
+}
+
+#moving-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#page5{
+    height: 100vh;
+    width: 100%;
+    background-color: #000000;
+    /* color: red; */
 }

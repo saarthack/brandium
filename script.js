@@ -36,7 +36,7 @@ function locomotiveAnimation() {
 
 }
 
-locomotiveAnimation()
+// locomotiveAnimation()
 
 function cursorAnimation() {
 
@@ -74,7 +74,7 @@ function cursorAnimation() {
     })
 }
 
-cursorAnimation()
+// cursorAnimation()
 
 function page1Text() {
     var allText = document.querySelectorAll(".page1-text h1")
@@ -102,4 +102,42 @@ function page1Text() {
 
 }
 
-page1Text()
+// page1Text()
+
+
+var elementContainer = document.querySelector("#element-container")
+
+elementContainer.addEventListener("mouseenter", function () {
+    gsap.to("#moving-image", {
+        opacity: 1
+    })
+})
+
+elementContainer.addEventListener("mouseleave", function () {
+    gsap.to("#moving-image", {
+        opacity: 0
+    })
+})
+
+var allElements = document.querySelectorAll(".element")
+var movingImageDiv = document.querySelector("#moving-image")
+var moveImg = document.querySelector("#moving-image img")
+
+
+allElements.forEach(function (elem) {
+    elem.addEventListener("mouseenter", function () {
+        let image = elem.getAttribute("data-image")
+        gsap.to(moveImg,{
+            attr:{src:image},
+        })
+    })
+    elementContainer.addEventListener("mousemove",function(dets){
+        gsap.to("#moving-image",{
+            left:`${dets.x - elementContainer.getBoundingClientRect().x}`,
+            top:`${dets.y - elementContainer.getBoundingClientRect().y}`,
+            duration:3,
+            ease:"power1.out"
+        })
+        
+    })
+})
