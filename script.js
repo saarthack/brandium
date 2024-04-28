@@ -36,7 +36,6 @@ function locomotiveAnimation() {
 
 }
 
-// locomotiveAnimation()
 
 function cursorAnimation() {
 
@@ -74,7 +73,6 @@ function cursorAnimation() {
     })
 }
 
-// cursorAnimation()
 
 function page1Text() {
     var allText = document.querySelectorAll(".page1-text h1")
@@ -102,42 +100,100 @@ function page1Text() {
 
 }
 
-// page1Text()
 
+function page3and4Animations() {
 
-var elementContainer = document.querySelector("#element-container")
+    var elementContainer = document.querySelector("#element-container")
 
-elementContainer.addEventListener("mouseenter", function () {
-    gsap.to("#moving-image", {
-        opacity: 1
-    })
-})
-
-elementContainer.addEventListener("mouseleave", function () {
-    gsap.to("#moving-image", {
-        opacity: 0
-    })
-})
-
-var allElements = document.querySelectorAll(".element")
-var movingImageDiv = document.querySelector("#moving-image")
-var moveImg = document.querySelector("#moving-image img")
-
-
-allElements.forEach(function (elem) {
-    elem.addEventListener("mouseenter", function () {
-        let image = elem.getAttribute("data-image")
-        gsap.to(moveImg,{
-            attr:{src:image},
+    elementContainer.addEventListener("mouseenter", function () {
+        gsap.to("#moving-image", {
+            opacity: 1
         })
     })
-    elementContainer.addEventListener("mousemove",function(dets){
-        gsap.to("#moving-image",{
-            left:`${dets.x - elementContainer.getBoundingClientRect().x}`,
-            top:`${dets.y - elementContainer.getBoundingClientRect().y}`,
-            duration:3,
-            ease:"power1.out"
+
+    elementContainer.addEventListener("mouseleave", function () {
+        gsap.to("#moving-image", {
+            opacity: 0
         })
-        
     })
+
+    var allElements = document.querySelectorAll(".element")
+    var movingImageDiv = document.querySelector("#moving-image")
+    var moveImg = document.querySelector("#moving-image img")
+
+
+    allElements.forEach(function (elem) {
+        elem.addEventListener("mouseenter", function () {
+            let image = elem.getAttribute("data-image")
+            gsap.to(moveImg, {
+                attr: { src: image },
+            })
+        })
+        elementContainer.addEventListener("mousemove", function (dets) {
+            gsap.to("#moving-image", {
+                left: `${dets.x - elementContainer.getBoundingClientRect().x}`,
+                top: `${dets.y - elementContainer.getBoundingClientRect().y}`,
+                duration: 3,
+                ease: "power1.out"
+            })
+
+        })
+    })
+}
+
+
+
+function marqueAnimation() {
+
+    document.addEventListener("wheel", function (dets) {
+        if (dets.deltaY > 0) {
+            gsap.to("#move .marque", {
+                transform: "translateX(-200%)",
+                ease: "none",
+                repeat: -1,
+                duration: 5
+            })
+            gsap.to("#move .marque img", {
+                rotate: 180
+            })
+        } else {
+            gsap.to("#move .marque", {
+                transform: "translateX(0%)",
+                ease: "none",
+                repeat: -1,
+                duration: 5
+            })
+            gsap.to("#move .marque img", {
+                rotate: 0
+            })
+        }
+    })
+}
+
+
+
+locomotiveAnimation()
+
+cursorAnimation()
+
+page1Text()
+
+page3and4Animations()
+
+marqueAnimation()
+var roti = 0
+document.addEventListener("wheel",function(dets){
+    if(dets.deltaY>0){
+        roti += 10
+        gsap.to("#bottomright svg",{
+            transform:`translate(-50%,-50%) rotate(${roti}deg)`
+        })
+    }else{
+        roti -= 10
+        gsap.to("#bottomright svg",{
+            transform:`translate(-50%,-50%) rotate(${roti}deg)`
+        })
+    }
 })
+
+

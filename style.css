@@ -13,6 +13,11 @@
     src: url(./3413twklausanne.woff2);
     font-weight: 900;
 }
+
+@font-face {
+    font-family: china;
+    src: url(./3856NeueMachina.woff2);
+}
 * {
     margin: 0;
     padding: 0;
@@ -24,9 +29,33 @@ body {
     height: 100%;
     width: 100%;
 }
+
+
 body{
     background-color: #F1EEE4;
 }
+
+#bottomright{
+    height: 5vw;
+    width: 5vw;
+    /* background-color: #D8FF04; */
+    position: fixed;
+    bottom: 5%;
+    right: 4%;
+    z-index: 99;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+#bottomright svg{
+    /* background-color: red; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 150%;
+    transform: translate(-50%,-50%) rotate(0deg);
+}
+
 #cursor{
     height: 25px;
     width: 25px;
@@ -266,4 +295,32 @@ overflow: hidden;
     width: 100%;
     background-color: #000000;
     /* color: red; */
+}
+
+#move{
+    background-color: #D8FF04;
+    padding: 2vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+#move .marque{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 3vw;
+    padding: 0 1.5vw;
+    transform: translateX(-100%);
+}
+#move h1{
+    font-family: china;
+    font-size: 2.6vw;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+#move img{
+    height: 3.2vw;
 }
